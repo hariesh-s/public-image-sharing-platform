@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+
+* {
+   box-sizing: border-box;
+}
+
+body {
+   margin: 0px;
+}
+
+.register-wrapper {
+   width: 100vw;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.register-form {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   gap: 30px;
+   width: 380px;
+   height: min-content; /* dynamic height, changes as required */
+   padding: 48px 24px;
+   border: 1px solid #d8d8d8;
+   border-radius: 16px;
+}
+
+.register-title,
+.register-input,
+.register-label,
+.register-btn,
+.register-errmsg {
+   font-family: "Raleway", sans-serif;
+}
+
+.register-title {
+   align-self: center;
+   font-size: 28px;
+}
+
+.register-field {
+   display: flex;
+   flex-direction: column;
+   position: relative;
+}
+
+.register-label {
+   position: absolute;
+   top: 12px;
+   left: 8px;
+   font-size: 18px;
+   color: #4a4a4a;
+   transition: top 0.1s, font 0.1s, color 0.1s;
+}
+
+.register-input {
+   padding: 12px 12px;
+   font-size: 18px;
+   border: 1px solid #d8d8d8;
+   border-radius: 4px;
+}
+
+.register-input:focus {
+   outline: none;
+   border: 2px solid #4285f4;
+}
+
+/* when register-input is on focus, animate register-label */
+.register-input:focus + .register-label {
+   top: -12px;
+   font-size: 12px;
+   padding: 4px;
+   background: white;
+   color: #4285f4;
+}
+
+/* when user has entered something
+in register-input, register-label must stay at top */
+.register-input:not(:placeholder-shown):not(:focus) + .register-label {
+   top: -12px;
+   font-size: 12px;
+   padding: 4px;
+   background: white;
+   color: #4a4a4a;
+}
+
+.register-btn {
+   align-self: center;
+   padding: 10px 16px;
+   font-size: 16px;
+   background: #4285f4;
+   color: #fff;
+   border: 0px;
+   border-radius: 6px;
+   cursor: pointer;
+}
+
+.register-btn:hover {
+   background: #0e53c3;
+   box-shadow: 0px 0px 1px #000;
+}
+
+.register-btn:focus {
+   outline: #0e53c3 solid 3px;
+}
+
+.register-btn:disabled {
+   opacity: 0.5;
+}
+
+.register-errmsg {
+   background: #fff;
+   padding: 6px;
+   border: 1px solid #d8d8d8;
+   border-radius: 4px;
+   font-size: 12px;
+   color: #0e53c3;
+}
