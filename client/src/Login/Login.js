@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./Login.css";
 
@@ -11,6 +12,8 @@ function Login() {
    useEffect(() => {
       usernameRef.current.focus();
    }, []);
+
+   const navigate = useNavigate()
 
    function handleLogin(e) {
       e.preventDefault();
@@ -30,6 +33,7 @@ function Login() {
          .then((response) => {
             const data = response.json();
             console.log(data)
+            navigate("/home", { replace: true })
          })
    }
 

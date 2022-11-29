@@ -1,26 +1,37 @@
+require('dotenv').config();
+const mongoose = require("mongoose");
+const verify_jwt = require("./middleware/verify-jwt")
 const express = require("express");
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.post("/api/login", (req, res) => {
-   console.log(req.body);
-   //need to modify
-   //has to compare password with db and then send an 
-   //appropriate response
-   res.json({
-      message: "received credentials"
-   });
-});
+//connecting to db
+const connect_db = async () => {
+   try {
+      await mongoose.connect(process.env.DATABASE_URI, {
+         useUnifiedTopology: true,
+         useNewUrlParser: true
+      })
+   } catch(err) {
+      console.log(err)
+   }
+}
+connect_db()
 
-app.post("/api/register", (req, res) => {
-   console.log(req.body);
-   res.json({
-      message: "received credentials"
-   });
-});
+app.use("/api/login", require("./routers/login-router"));
+app.use("/api/register", require("./routers/register-router"));
 
-app.listen(5000, () => {
-   console.log("server listening on port 5000");
-});
+app.use(verify_jwt)
+app.get("/home", (req, res) => {
+   res.json({ "message" : "hi there!" })
+})
+
+//run server when database is connected
+mongoose.connection.once("open", () => {
+   console.log("database connected!")
+   app.listen(5000, () => {
+      console.log("server listening on port 5000!");
+   });
+})

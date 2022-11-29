@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+
+.list-element {
+   list-style-type: none;
+   width: 750px;
+   height: 60px;
+   background: white;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   border-bottom: 1px solid grey;
+   font-family: "Raleway", sans-serif;
+   font-size: 15px;
+   padding: 0px 12px;
+}
+
+.list-element:hover{
+   background: rgb(224, 247, 255);
+}
