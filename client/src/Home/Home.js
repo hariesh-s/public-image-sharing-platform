@@ -14,9 +14,7 @@ function Home() {
             return response.json();
          })
          .then((data) => {
-            console.log(data);
             setMyFiles(data);
-            console.log(localStorage.getItem("loginStatus"));
          });
    }, [isModalShown]);
 

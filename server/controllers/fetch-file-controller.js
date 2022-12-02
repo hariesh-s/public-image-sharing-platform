@@ -2,8 +2,7 @@ const File = require("../models/File");
 
 async function fetchFile(req, res) {
    const fileName = req.params.name;
-   console.log(req.params);
-   console.log(fileName);
+
    const found_file = await File.findOne({ fileName: fileName }).exec();
 
    if (!found_file)

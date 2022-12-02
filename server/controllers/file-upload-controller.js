@@ -6,7 +6,12 @@ async function handleFileUpload(req, res) {
 
    // access the files uploaded as req.files."name"
    const uploadedFile = req.files.file;
-   console.log(uploadedFile);
+
+   const file_already_exists = await File.findOne({
+      fileName: uploadedFile.name,
+   }).exec();
+   if (file_already_exists) return res.sendStatus(409); //status for conflict
+
    try {
       const newFile = await File.create({
          fileName: uploadedFile.name,

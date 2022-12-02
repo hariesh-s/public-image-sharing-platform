@@ -66,8 +66,6 @@ function App() {
          },
          body: JSON.stringify(newUserDetails),
       }).then((response) => {
-         const data = response.json();
-         console.log(data);
          navigate("/login", { replace: true });
       });
    }

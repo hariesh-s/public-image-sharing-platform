@@ -10,7 +10,6 @@ function File() {
       fetch("/api" + location.pathname)
          .then((response) => response.json())
          .then((data) => {
-            console.log(data);
             const base64Flag = "data:image/jpeg;base64,";
             const imageStr = arrayBufferToBase64(data.content.data);
             setImage(base64Flag + imageStr);

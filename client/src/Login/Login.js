@@ -31,8 +31,6 @@ function Login() {
          },
          body: JSON.stringify(userCredentials),
       }).then((response) => {
-         const data = response.json();
-         console.log(data);
          localStorage.setItem("loginStatus", "true");
          navigate("/home", { replace: true });
       });

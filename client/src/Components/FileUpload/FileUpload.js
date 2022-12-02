@@ -6,31 +6,30 @@ function FileUpload({ isShown, setShown }) {
 
    function handleFileUpload(e) {
       e.preventDefault();
-      console.log("upload");
-      console.log(e.target.files[0]);
       setFile(e.target.files[0]);
    }
 
    function handleSubmit(e) {
       e.preventDefault();
-      console.log("submit");
 
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("fileName", file.name);
+      if(file) {
+         const formData = new FormData();
+         formData.append("file", file);
+         formData.append("fileName", file.name);
 
-      fetch("/api/file-upload", {
-         method: "POST",
-         body: formData,
-      })
-         .then((response) => {
-            const data = response.json();
-            console.log(data);
-            setShown(false);
+         fetch("/api/file-upload", {
+            method: "POST",
+            body: formData,
          })
-         .catch((err) => {
-            console.log(err);
-         });
+            .then((response) => {
+               setShown(false);
+            })
+            .catch((err) => {
+               console.log(err);
+            });
+      } else {
+         console.error("Please upload a file")
+      }
    }
 
    return (
