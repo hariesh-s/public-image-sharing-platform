@@ -6,6 +6,7 @@ import "./Login.css";
 function Login() {
    const [username, setUsername] = useState("");
    const [password, setPassword] = useState("");
+   localStorage.setItem("loginStatus", "false");
 
    // setting focus on username input on load
    const usernameRef = useRef();
@@ -32,6 +33,7 @@ function Login() {
       }).then((response) => {
          const data = response.json();
          console.log(data);
+         localStorage.setItem("loginStatus", "true");
          navigate("/home", { replace: true });
       });
    }

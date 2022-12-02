@@ -14,6 +14,10 @@ body {
    display: flex;
    justify-content: center;
    align-items: center;
+   background-image: url("../../public/main-bg.png");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
 }
 
 .login-form {
@@ -24,7 +28,7 @@ body {
    width: 380px;
    height: min-content; /* dynamic height, changes as required */
    padding: 48px 24px;
-   border: 1px solid #d8d8d8;
+   border: 2px solid #FBE5D6;
    border-radius: 16px;
 }
 
@@ -58,7 +62,7 @@ body {
 .login-input {
    padding: 12px 12px;
    font-size: 18px;
-   border: 1px solid #d8d8d8;
+   border: 2px solid #FBE5D6;
    border-radius: 4px;
 }
 

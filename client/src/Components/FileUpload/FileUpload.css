@@ -12,29 +12,45 @@
 }
 
 .modal {
-   background: #ffe608;
-   width: 40vw;
+   background: #fff;
+   width: 30vw;
    display: flex;
    flex-direction: column;
-   border: 2px solid #ffca08;
    border-radius: 16px;
-}
-
-.modal-header {
-   display: flex;
-   justify-content: center;
-   padding: 12px;
-   font-size: 40px;
-   border-bottom: 2px solid #ffca08;
 }
 
 .modal-body {
    font-size: 28px;
-   padding: 12px;
+   padding-top: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
 .modal-footer {
    display: flex;
    justify-content: space-around;
-   padding: 12px 36px;
+   padding: 20px 36px;
+}
+
+.file-input{
+   font-family: "Raleway", sans-serif;
+   font-size: 16px;
+   width: 240px;
+}
+
+.btn {
+   position: relative;
+   background: #4081ec;
+   color: white;
+   font-family: "Raleway", sans-serif;
+   font-size: 16px;
+   padding: 12px;
+   border: none;
+   border-radius: 8px ;
+   cursor: pointer;
+}
+
+.btn:hover {
+   font-size: larger;
 }

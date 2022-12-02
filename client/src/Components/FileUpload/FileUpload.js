@@ -36,13 +36,12 @@ function FileUpload({ isShown, setShown }) {
    return (
       <form className="modal-wrapper" onSubmit={handleSubmit}>
          <div className="modal">
-            <header className="modal-header">File Upload</header>
             <section className="modal-body">
-               <input name="newFile" type="file" onChange={handleFileUpload} />
+               <input className="file-input" name="newFile" accept="image/jpeg" type="file" onChange={handleFileUpload} />
             </section>
             <footer className="modal-footer">
-               <button type="submit">Upload</button>
-               <button type="button" onClick={(e) => setShown(false)}>
+               <button className="btn" type="submit">Upload</button>
+               <button className="btn" type="button" onClick={(e) => setShown(false)}>
                   Close
                </button>
             </footer>

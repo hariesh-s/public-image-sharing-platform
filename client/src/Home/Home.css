@@ -5,29 +5,50 @@
    flex-direction: column;
    align-items: center;
    gap: 10px;
+   background-image: url("../../public/secondary-bg.png");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.file-list-wrapper {
+   position: relative;
+   left: -40px; /*hardcoded*/
+   height: 80vh;
+   margin-top: 5vh;
+
 }
 
 .file-heading {
-   color: white;
+   color: black;
    font-family: "Raleway", sans-serif;
-   font-size: 24px;
+   font-size: 28px;
    text-align: center;
+   margin-bottom: 4px;
+}
+
+.list-wrapper {
+   height: 66vh;
+   overflow-y: scroll;
 }
 
 .list {
    padding: 0px 8px;
-   border-radius: 50px;
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
 }
 
 .list-element {
    list-style-type: none;
-   width: 750px;
+   width: 850px;
    height: 60px;
    background: white;
    display: flex;
    justify-content: space-between;
    align-items: center;
-   border-bottom: 1px solid grey;
+   border: 1px solid gray;
+   border-radius: 10px;
    font-family: "Raleway", sans-serif;
    font-size: 15px;
    padding: 0px 12px;
@@ -36,35 +57,46 @@
 }
 
 .list-element:hover {
-   background: rgb(224, 247, 255);
-}
-
-.file-list-wrapper {
-   height: 75vh;
-   margin-top: 10vh;
-   background-color: #4081ec;
-   overflow-y: scroll;
+   background: #fff2e9;
 }
 
 .add-file-btn {
+   position: relative;
+   left: -40px;
    background: #4081ec;
    color: white;
    font-family: "Raleway", sans-serif;
    font-size: 16px;
    padding: 12px;
    border: none;
+   border-radius: 8px ;
+   cursor: pointer;
 }
 
 .add-file-btn:hover {
    font-size: larger;
 }
 
-.add-file-btn:active {
-   font-size: smaller;
+.logout-btn {
+   position: absolute;
+   top: 20px;
+   right: 20px;
+   background: #4081ec;
+   color: white;
+   font-family: "Raleway", sans-serif;
+   font-size: 16px;
+   padding: 12px;
+   border: none;
+   border-radius: 8px ;
+   cursor: pointer;
+}
+
+.logout-btn:hover {
+   font-size: larger;
 }
 
 ::-webkit-scrollbar {
-   width: 8px;
+   width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -72,5 +104,6 @@
 }
 
 ::-webkit-scrollbar-thumb {
-   background: black;
+   background: #E47369;
+   border-radius: 24px;
 }

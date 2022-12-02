@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./File.css";
 
 function File() {
@@ -28,9 +28,20 @@ function File() {
    }
 
    return (
-      <div className="img-wrapper">
-         <img src={image} className="img" alt="Helpful alt text"></img>
-      </div>
+      <>
+         {localStorage.getItem("loginStatus") === "true" && (
+            <div className="img-wrapper">
+               <img src={image} className="img" alt="Loading ...."></img>
+            </div>
+         )}
+         {(localStorage.getItem("loginStatus") === "false" ||
+            localStorage.getItem("loginStatus") === null) && (
+            <>
+               <p> Please login to get access ! </p>
+               <Link to="/login">Login</Link>
+            </>
+         )}
+      </>
    );
 }
 
