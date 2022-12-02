@@ -11,11 +11,11 @@ root.render(
    <React.StrictMode>
       <BrowserRouter>
          <Routes>
-            <Route path="/" element={<Navigate to="/login"/>}></Route>
-            <Route path="/login" element={<Login/>}></Route>
-            <Route path="/register" element={<Register/>}></Route>
-            <Route path="/home" element={<Home/>}></Route>
-            <Route path="/home/:name" element={<File/>}></Route>
+            <Route path="/" element={<Navigate to="/login" />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/register" element={<Register />}></Route>
+            <Route path="/home" element={<Home />}></Route>
+            <Route path="/home/:name" element={<File />}></Route>
          </Routes>
       </BrowserRouter>
    </React.StrictMode>

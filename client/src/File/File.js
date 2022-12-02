@@ -29,11 +29,7 @@ function File() {
 
    return (
       <div className="img-wrapper">
-         <img
-            src={image}
-            className="img"
-            alt="Helpful alt text"
-         ></img>
+         <img src={image} className="img" alt="Helpful alt text"></img>
       </div>
    );
 }

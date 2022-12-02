@@ -6,7 +6,7 @@ const fileSchema = new Schema({
    content: Buffer,
    size: Number,
    encoding: String,
-   mimetype: String
+   mimetype: String,
 });
 
 module.exports = mongoose.model("File", fileSchema);

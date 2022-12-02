@@ -21,7 +21,7 @@ function App() {
       usernameRef.current.focus();
    }, []);
 
-   const navigate = useNavigate()
+   const navigate = useNavigate();
 
    function handleUsernameChange(e) {
       const newUsername = e.target.value;
@@ -65,12 +65,11 @@ function App() {
             "Content-Type": "Application/json",
          },
          body: JSON.stringify(newUserDetails),
-      })
-         .then((response) => {
-            const data = response.json()
-            console.log(data)
-            navigate("/login", { replace: true })
-         })
+      }).then((response) => {
+         const data = response.json();
+         console.log(data);
+         navigate("/login", { replace: true });
+      });
    }
 
    return (

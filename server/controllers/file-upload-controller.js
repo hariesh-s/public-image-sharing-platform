@@ -6,14 +6,14 @@ async function handleFileUpload(req, res) {
 
    // access the files uploaded as req.files."name"
    const uploadedFile = req.files.file;
-   console.log(uploadedFile)
+   console.log(uploadedFile);
    try {
-      const newFile = await File.create({ 
-         fileName: uploadedFile.name, 
+      const newFile = await File.create({
+         fileName: uploadedFile.name,
          content: uploadedFile.data,
          size: uploadedFile.size,
          encoding: uploadedFile.encoding,
-         mimetype: uploadedFile.mimetype
+         mimetype: uploadedFile.mimetype,
       });
       res.status(201).json({ message: "file uploaded!" });
    } catch (err) {

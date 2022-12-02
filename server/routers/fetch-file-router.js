@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { fetchFile } = require('../controllers/fetch-file-controller');
+const { fetchFile } = require("../controllers/fetch-file-controller");
 
-router.get("/api/home/:name", fetchFile)
+router.get("/api/home/:name", fetchFile);
 module.exports = router;

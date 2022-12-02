@@ -5,7 +5,7 @@ import "./Home.css";
 
 function Home() {
    const [myFiles, setMyFiles] = useState([]);
-   const [ isModalShown, setModalShown ] = useState(false)
+   const [isModalShown, setModalShown] = useState(false);
 
    useEffect(() => {
       fetch("/api/files")
@@ -19,14 +19,14 @@ function Home() {
    }, [isModalShown]);
 
    function toggleForm() {
-      setModalShown(true)
+      setModalShown(true);
    }
 
    return (
       <main className="home-main">
-         { isModalShown && 
-            <FileUpload isShown={isModalShown} setShown={setModalShown}/>
-         }
+         {isModalShown && (
+            <FileUpload isShown={isModalShown} setShown={setModalShown} />
+         )}
          <div className="file-list-wrapper">
             <p className="file-heading">My Files</p>
             <ul className="list">
@@ -39,7 +39,9 @@ function Home() {
                ))}
             </ul>
          </div>
-         <button className="add-file-btn" onClick={toggleForm}>Add file</button>
+         <button className="add-file-btn" onClick={toggleForm}>
+            Add file
+         </button>
       </main>
    );
 }

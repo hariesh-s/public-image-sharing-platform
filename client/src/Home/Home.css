@@ -1,4 +1,4 @@
-.home-main{
+.home-main {
    width: 100vw;
    height: 100vh;
    display: flex;
@@ -35,42 +35,42 @@
    color: black;
 }
 
-.list-element:hover{
+.list-element:hover {
    background: rgb(224, 247, 255);
 }
 
 .file-list-wrapper {
    height: 75vh;
    margin-top: 10vh;
-   background-color: #4081EC;
+   background-color: #4081ec;
    overflow-y: scroll;
 }
 
 .add-file-btn {
-   background: #4081EC;
+   background: #4081ec;
    color: white;
    font-family: "Raleway", sans-serif;
    font-size: 16px;
    padding: 12px;
-   border: none; 
+   border: none;
 }
 
-.add-file-btn:hover{
+.add-file-btn:hover {
    font-size: larger;
 }
 
-.add-file-btn:active{
+.add-file-btn:active {
    font-size: smaller;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
    width: 8px;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
    background: transparent !important;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
    background: black;
 }

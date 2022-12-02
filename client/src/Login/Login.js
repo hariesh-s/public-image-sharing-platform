@@ -13,7 +13,7 @@ function Login() {
       usernameRef.current.focus();
    }, []);
 
-   const navigate = useNavigate()
+   const navigate = useNavigate();
 
    function handleLogin(e) {
       e.preventDefault();
@@ -29,12 +29,11 @@ function Login() {
             "Content-Type": "Application/json",
          },
          body: JSON.stringify(userCredentials),
-      })
-         .then((response) => {
-            const data = response.json();
-            console.log(data)
-            navigate("/home", { replace: true })
-         })
+      }).then((response) => {
+         const data = response.json();
+         console.log(data);
+         navigate("/home", { replace: true });
+      });
    }
 
    return (
