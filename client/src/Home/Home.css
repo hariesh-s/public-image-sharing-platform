@@ -19,6 +19,26 @@
    border-radius: 50px;
 }
 
+.list-element {
+   list-style-type: none;
+   width: 750px;
+   height: 60px;
+   background: white;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   border-bottom: 1px solid grey;
+   font-family: "Raleway", sans-serif;
+   font-size: 15px;
+   padding: 0px 12px;
+   text-decoration: none;
+   color: black;
+}
+
+.list-element:hover{
+   background: rgb(224, 247, 255);
+}
+
 .file-list-wrapper {
    height: 75vh;
    margin-top: 10vh;

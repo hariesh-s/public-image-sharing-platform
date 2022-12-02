@@ -1,36 +1,45 @@
-import { useState, useEffect, useRef } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import List from "../List/List";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import FileUpload from "../Components/FileUpload/FileUpload";
 import "./Home.css";
 
 function Home() {
+   const [myFiles, setMyFiles] = useState([]);
+   const [ isModalShown, setModalShown ] = useState(false)
+
+   useEffect(() => {
+      fetch("/api/files")
+         .then((response) => {
+            return response.json();
+         })
+         .then((data) => {
+            console.log(data);
+            setMyFiles(data);
+         });
+   }, [isModalShown]);
+
+   function toggleForm() {
+      setModalShown(true)
+   }
+
    return (
       <main className="home-main">
+         { isModalShown && 
+            <FileUpload isShown={isModalShown} setShown={setModalShown}/>
+         }
          <div className="file-list-wrapper">
             <p className="file-heading">My Files</p>
             <ul className="list">
-               <List file_name="CN notes" className="list"></List>
-               <List file_name="DBMS notes" className="list"></List>
-               <List file_name="CN notes" className="list"></List>
-               <List file_name="DBMS notes" className="list"></List>
-               <List file_name="CN notes" className="list"></List>
-               <List file_name="DBMS notes" className="list"></List>
-               <List file_name="CN notes" className="list"></List>
-               <List file_name="DBMS notes" className="list"></List>
-               <List file_name="CN notes" className="list"></List>
-               <List file_name="DBMS notes" className="list"></List>
-               <List file_name="CN notes" className="list"></List>
-               <List file_name="DBMS notes" className="list"></List>
-               <List file_name="CN notes" className="list"></List>
-               <List file_name="DBMS notes" className="list"></List>
-               <List file_name="CN notes" className="list"></List>
-               <List file_name="DBMS notes" className="list"></List>
+               {myFiles.map((file) => (
+                  <li key={file.fileName}>
+                     <Link className="list-element" to={file.fileName}>
+                        {file.fileName}
+                     </Link>
+                  </li>
+               ))}
             </ul>
          </div>
-         <button className="add-file-btn">
-            Add file
-         </button>
+         <button className="add-file-btn" onClick={toggleForm}>Add file</button>
       </main>
    );
 }

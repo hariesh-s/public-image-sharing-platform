@@ -1,9 +1,11 @@
 require('dotenv').config();
+const file_upload = require("express-fileupload")
 const mongoose = require("mongoose");
 const verify_jwt = require("./middleware/verify-jwt")
 const express = require("express");
 const app = express();
 
+app.use(file_upload())
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -20,11 +22,15 @@ const connect_db = async () => {
 }
 connect_db()
 
-app.use("/api/login", require("./routers/login-router"));
-app.use("/api/register", require("./routers/register-router"));
+app.use("/", require("./routers/login-router"));
+app.use("/", require("./routers/register-router"));
+app.use("/", require("./routers/files-router"))
+app.use("/", require("./routers/file-upload-router"))
+app.use("/", require("./routers/fetch-file-router"))
 
 app.use(verify_jwt)
 app.get("/home", (req, res) => {
+   console.log("home")
    res.json({ "message" : "hi there!" })
 })
 
