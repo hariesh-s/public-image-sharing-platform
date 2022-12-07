@@ -34,7 +34,7 @@ const handleLogin = async (req, res) => {
          maxAge: 7 * 24 * 60 * 60 * 1000,
       });
 
-      res.json({ access_token }); //unauthorized
+      res.status(200).json({ access_token }); //unauthorized
    } else return res.sendStatus(401);
 };
 

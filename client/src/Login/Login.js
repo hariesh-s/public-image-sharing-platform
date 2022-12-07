@@ -31,9 +31,14 @@ function Login() {
          },
          body: JSON.stringify(userCredentials),
       }).then((response) => {
-         localStorage.setItem("loginStatus", "true");
-         navigate("/home", { replace: true });
-      });
+         if(response.status === 200) {
+            localStorage.setItem("loginStatus", "true");
+            navigate("/home", { replace: true })
+            return response.json()
+         } else {
+            alert("incorrect credentials!!")
+         }
+      })
    }
 
    return (
